@@ -16,6 +16,12 @@ async function routes (app: FastifyInstance) {
         return { transactions }
     })
 
+    app.get('/summary', async () => {
+        const summary = await knex('transactions').sum('amount', { as: 'amount' }).first()
+
+        return { summary }
+    })
+
     app.get('/:id', async (request) => {
         const getTransactionParamsSchema = z.object({
             id: z.string().uuid(),
