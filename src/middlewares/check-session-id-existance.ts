@@ -1,10 +1,10 @@
-import { FastifyReply, FastifyRequest } from "fastify";
+import { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function checkSessionIdExistance(
-    request: FastifyRequest,
-    reply: FastifyReply
+  request: FastifyRequest,
+  reply: FastifyReply,
 ) {
-    const sessionId = request.cookies.sessionId
+  const sessionId = request.cookies.sessionId
 
-    if (!sessionId) reply.status(401).send('Unauthorized')
+  if (!sessionId) reply.status(401).send('Unauthorized')
 }

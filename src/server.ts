@@ -1,13 +1,15 @@
-import fastify from "fastify";
-import { env } from "./env";
-import { router } from "./routes";
+import fastify from 'fastify'
+import { env } from './env'
+import { router } from './routes'
 
 const app = fastify()
 
 router(app)
 
-app.listen({
+app
+  .listen({
     port: env.PORT,
-}).then(() => {
-    console.log("HTTP Server running on 3333 🚀")
-})
+  })
+  .then(() => {
+    console.log('HTTP Server running on 3333 🚀')
+  })
